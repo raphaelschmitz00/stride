@@ -1,3 +1,4 @@
 *.nupkg
 StrideSetup*.exe
 /TestResults
+/.idea/
