@@ -130,6 +130,14 @@ namespace Stride.Assets
         }
     }
 
+    namespace DataAssets
+    {
+        [Display((int)AssetDisplayPriority.Scripts + 60, "Data Asset")]
+        partial class DataAsset
+        {
+        }
+    }
+
     namespace Skyboxes
     {
         [Display((int)AssetDisplayPriority.Skyboxes, "Skybox")]
