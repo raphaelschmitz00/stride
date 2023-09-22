@@ -2,9 +2,16 @@
 // Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
 
 using Microsoft.Extensions.DependencyInjection;
+using Stride.Audio;
 using Stride.Core;
 using Stride.Core.IO;
+using Stride.Engine.Processors;
 using Stride.Games;
+using Stride.Profiling;
+using Stride.Rendering.Fonts;
+using Stride.Rendering.Sprites;
+using Stride.Streaming;
+using Stride.VirtualReality;
 
 namespace Stride.Engine.Startup;
 
@@ -36,6 +43,15 @@ public class StrideApplication
 
         // Extracted from Game
         serviceCollection.AddSingleton<Game>();
+        serviceCollection.AddSingleton<ScriptSystem>();
+        serviceCollection.AddSingleton<SceneSystem>();
+        serviceCollection.AddSingleton<StreamingManager>();
+        serviceCollection.AddSingleton<AudioSystem>();
+        serviceCollection.AddSingleton<GameFontSystem>();
+        serviceCollection.AddSingleton<SpriteAnimationSystem>();
+        serviceCollection.AddSingleton<DebugTextSystem>();
+        serviceCollection.AddSingleton<GameProfilingSystem>();
+        serviceCollection.AddSingleton<VRDeviceSystem>();
 
         return new GameBuilder(serviceCollection);
     }

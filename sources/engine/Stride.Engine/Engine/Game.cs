@@ -192,7 +192,16 @@ namespace Stride.Engine
         public Game(
             ServiceRegistry serviceRegistry,
             LaunchParameters launchParameters,
-            GameSystemCollection gameSystemCollection
+            GameSystemCollection gameSystemCollection,
+            ScriptSystem scriptSystem,
+            SceneSystem sceneSystem,
+            StreamingManager streamingManager,
+            AudioSystem audioSystem,
+            GameFontSystem gameFontSystem,
+            SpriteAnimationSystem spriteAnimationSystem,
+            DebugTextSystem debugTextSystem,
+            GameProfilingSystem gameProfilingSystem,
+            VRDeviceSystem vrDeviceSystem
         ) : base(
             serviceRegistry,
             launchParameters,
@@ -207,32 +216,32 @@ namespace Stride.Engine
 
             // Create all core services, except Input which is created during `Initialize'.
             // Registration takes place in `Initialize'.
-            Script = new ScriptSystem(Services);
+            Script = scriptSystem;
             Services.AddService(Script);
 
-            SceneSystem = new SceneSystem(Services);
+            SceneSystem = sceneSystem;
             Services.AddService(SceneSystem);
 
-            Streaming = new StreamingManager(Services);
+            Streaming = streamingManager;
 
-            Audio = new AudioSystem(Services);
+            Audio = audioSystem;
             Services.AddService(Audio);
             Services.AddService<IAudioEngineProvider>(Audio);
 
-            gameFontSystem = new GameFontSystem(Services);
+            this.gameFontSystem = gameFontSystem;
             Services.AddService(gameFontSystem.FontSystem);
             Services.AddService<IFontFactory>(gameFontSystem.FontSystem);
 
-            SpriteAnimation = new SpriteAnimationSystem(Services);
+            SpriteAnimation = spriteAnimationSystem;
             Services.AddService(SpriteAnimation);
 
-            DebugTextSystem = new DebugTextSystem(Services);
+            DebugTextSystem = debugTextSystem;
             Services.AddService(DebugTextSystem);
 
-            ProfilingSystem = new GameProfilingSystem(Services);
+            ProfilingSystem = gameProfilingSystem;
             Services.AddService(ProfilingSystem);
 
-            VRDeviceSystem = new VRDeviceSystem(Services);
+            VRDeviceSystem = vrDeviceSystem;
             Services.AddService(VRDeviceSystem);
 
             // Creates the graphics device manager
