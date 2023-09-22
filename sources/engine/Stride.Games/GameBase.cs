@@ -68,7 +68,7 @@ namespace Stride.Games
         /// <summary>
         /// Initializes a new instance of the <see cref="GameBase" /> class.
         /// </summary>
-        protected GameBase()
+        protected GameBase(ServiceRegistry serviceRegistry)
         {
             // Internals
             Log = GlobalLogger.GetLogger(GetType().GetTypeInfo().Name);
@@ -86,7 +86,7 @@ namespace Stride.Games
             isMouseVisible = true;
 
             // Externals
-            Services = new ServiceRegistry();
+            Services = serviceRegistry;
 
             // Database file provider
             Services.AddService<IDatabaseFileProviderService>(new DatabaseFileProviderService(null));

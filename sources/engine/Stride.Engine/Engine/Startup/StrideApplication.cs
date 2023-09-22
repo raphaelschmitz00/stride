@@ -2,6 +2,7 @@
 // Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
 
 using Microsoft.Extensions.DependencyInjection;
+using Stride.Core;
 
 namespace Stride.Engine.Startup;
 
@@ -14,6 +15,9 @@ public class StrideApplication
     {
         var serviceCollection = new ServiceCollection();
 
+        // ServiceRegistry
+        serviceCollection.AddSingleton<ServiceRegistry>();
+        
         // Game
         serviceCollection.AddSingleton<Game>();
 

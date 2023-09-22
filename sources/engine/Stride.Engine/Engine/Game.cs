@@ -7,6 +7,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 using Stride.Audio;
+using Stride.Core;
 using Stride.Core.Diagnostics;
 using Stride.Core.IO;
 using Stride.Core.Mathematics;
@@ -188,7 +189,7 @@ namespace Stride.Engine
         /// <summary>
         /// Initializes a new instance of the <see cref="Game"/> class.
         /// </summary>
-        public Game()
+        public Game(ServiceRegistry serviceRegistry) : base(serviceRegistry)
         {
             // Register the logger backend before anything else
             logListener = GetLogListener();
