@@ -130,10 +130,10 @@ namespace Stride.Assets
         }
     }
 
-    namespace DataAssets
+    namespace GlobalData
     {
-        [Display((int)AssetDisplayPriority.Scripts + 60, "Data Asset")]
-        partial class DataAsset
+        [Display((int)AssetDisplayPriority.Scripts + 60, "Global Data")]
+        partial class GlobalDataAsset
         {
         }
     }
