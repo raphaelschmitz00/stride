@@ -3,6 +3,8 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using Stride.Core;
+using Stride.Core.IO;
+using Stride.Games;
 
 namespace Stride.Engine.Startup;
 
@@ -16,9 +18,23 @@ public class StrideApplication
         var serviceCollection = new ServiceCollection();
 
         // ServiceRegistry
-        serviceCollection.AddSingleton<ServiceRegistry>();
+        serviceCollection.AddSingleton(serviceProvider =>
+        {
+            var serviceRegistry = new ServiceRegistry();
+            
+            serviceRegistry.AddService(serviceProvider.GetService<IDatabaseFileProviderService>());
+            serviceRegistry.AddService(serviceProvider.GetService<IGameSystemCollection>());
+
+            return serviceRegistry;
+        });
         
-        // Game
+        // Extracted from GameBase
+        serviceCollection.AddSingleton<IDatabaseFileProviderService>(_ => new DatabaseFileProviderService(null));
+        serviceCollection.AddSingleton<LaunchParameters>();
+        serviceCollection.AddSingleton<GameSystemCollection>();
+        serviceCollection.AddSingleton<IGameSystemCollection>(serviceProvider => serviceProvider.GetService<GameSystemCollection>());
+
+        // Extracted from Game
         serviceCollection.AddSingleton<Game>();
 
         return new GameBuilder(serviceCollection);

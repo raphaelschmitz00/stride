@@ -189,7 +189,15 @@ namespace Stride.Engine
         /// <summary>
         /// Initializes a new instance of the <see cref="Game"/> class.
         /// </summary>
-        public Game(ServiceRegistry serviceRegistry) : base(serviceRegistry)
+        public Game(
+            ServiceRegistry serviceRegistry,
+            LaunchParameters launchParameters,
+            GameSystemCollection gameSystemCollection
+        ) : base(
+            serviceRegistry,
+            launchParameters,
+            gameSystemCollection
+        )
         {
             // Register the logger backend before anything else
             logListener = GetLogListener();

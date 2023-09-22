@@ -68,7 +68,11 @@ namespace Stride.Games
         /// <summary>
         /// Initializes a new instance of the <see cref="GameBase" /> class.
         /// </summary>
-        protected GameBase(ServiceRegistry serviceRegistry)
+        protected GameBase(
+            ServiceRegistry serviceRegistry,
+            LaunchParameters launchParameters,
+            GameSystemCollection gameSystemCollection
+        )
         {
             // Internals
             Log = GlobalLogger.GetLogger(GetType().GetTypeInfo().Name);
@@ -88,12 +92,8 @@ namespace Stride.Games
             // Externals
             Services = serviceRegistry;
 
-            // Database file provider
-            Services.AddService<IDatabaseFileProviderService>(new DatabaseFileProviderService(null));
-
-            LaunchParameters = new LaunchParameters();
-            GameSystems = new GameSystemCollection(Services);
-            Services.AddService<IGameSystemCollection>(GameSystems);
+            LaunchParameters = launchParameters;
+            GameSystems = gameSystemCollection;
 
             // Create Platform
             gamePlatform = GamePlatform.Create(this);
