@@ -315,6 +315,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stride.Importer.Assimp", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stride.Importer.Common", "..\sources\tools\Stride.Importer.Common\Stride.Importer.Common.csproj", "{806AA078-6070-4BB6-B05B-6EE6B21B1CDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsageExamples", "..\sources\UsageExamples\UsageExamples.csproj", "{54487409-065D-4F0F-AC70-0BF38A317AF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1402,6 +1404,18 @@ Global
 		{806AA078-6070-4BB6-B05B-6EE6B21B1CDE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{806AA078-6070-4BB6-B05B-6EE6B21B1CDE}.Release|Win32.ActiveCfg = Release|Any CPU
 		{806AA078-6070-4BB6-B05B-6EE6B21B1CDE}.Release|Win32.Build.0 = Release|Any CPU
+		{54487409-065D-4F0F-AC70-0BF38A317AF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54487409-065D-4F0F-AC70-0BF38A317AF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54487409-065D-4F0F-AC70-0BF38A317AF6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{54487409-065D-4F0F-AC70-0BF38A317AF6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{54487409-065D-4F0F-AC70-0BF38A317AF6}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{54487409-065D-4F0F-AC70-0BF38A317AF6}.Debug|Win32.Build.0 = Debug|Any CPU
+		{54487409-065D-4F0F-AC70-0BF38A317AF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54487409-065D-4F0F-AC70-0BF38A317AF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54487409-065D-4F0F-AC70-0BF38A317AF6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{54487409-065D-4F0F-AC70-0BF38A317AF6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{54487409-065D-4F0F-AC70-0BF38A317AF6}.Release|Win32.ActiveCfg = Release|Any CPU
+		{54487409-065D-4F0F-AC70-0BF38A317AF6}.Release|Win32.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
